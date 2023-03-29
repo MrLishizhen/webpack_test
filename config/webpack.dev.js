@@ -2,6 +2,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path'); // nodejs核心模块，专门用来处理路径问题
 const ESLintPlugin = require('eslint-webpack-plugin');
 
+/*
+npx webpack serve --config ./config/webpack.dev.js 启动命令
+
+*/
 
 module.exports = {
     //入口
@@ -9,7 +13,7 @@ module.exports = {
     //输出
     output: {
         //所有文件的输出路径
-        path: path.resolve(__dirname, 'dist'),//绝对路径
+        path: path.resolve(__dirname, '../dist'),//绝对路径
         //文件名，入口文件打包输出文件名
         filename: "static/js/main.js",
         //每次打包清空上次输出目录
@@ -102,12 +106,12 @@ module.exports = {
         new ESLintPlugin({
             //检测那些文件
 
-            context: path.resolve(__dirname, 'src')
+            context: path.resolve(__dirname, '../src')
         }),
         new HtmlWebpackPlugin({
             // 模板：以public/index.html 文件创建新的html文件
             // 新的html文件特点，1.结构和原来一直。2.自动引入打包输出的资源。
-            template: path.resolve(__dirname, 'public/index.html')
+            template: path.resolve(__dirname, '../public/index.html')
         })
     ],
     //服务启动命令： npx webpack serve
